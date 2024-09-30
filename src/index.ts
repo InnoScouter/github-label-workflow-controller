@@ -3,7 +3,7 @@ import {Octokit} from "@octokit/rest";
 import {createAppAuth} from "@octokit/auth-app";
 import type {ProbotOctokit} from "probot/lib/octokit/probot-octokit";
 import ProcessEnv = NodeJS.ProcessEnv;
-import LabelControllerItem = NodeJS.LabelControllerItem;
+import LabelControllerItem = NodeJS.LabelWorkflowControllerItem;
 
 async function executeWorkflowsWhenAddLabel(
     {context, label, octokit, owner, pullRequestNumber, ref, repo, workflow_id}: {
@@ -147,7 +147,7 @@ const getLabelControllerConfigs = async (context: Context<any>) => {
     const response = await octokit.repos.getContent({
         owner,
         repo,
-        path: ".github/label-controller.json",
+        path: ".github/label-workflow-controller.json",
     });
 
     if ("content" in response.data) {
