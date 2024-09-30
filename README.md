@@ -1,7 +1,7 @@
 # github-label-controller
 
 ラベル付与、剥がしで、ワークフローを実行するものです。
-リポジトリに以下のようなファイルが必要となります。
+リポジトリに以下のようなファイルが必要となります。`/.github/label-workflow-controller.json`を追加してください。
 https://github.com/momosetkn/label-controller-test/blob/fc9df5d58b46956576549836fd34ce69bc7affa3/.github/label-controller.json
 
 デプロイ、アンデプロイに使えます。
