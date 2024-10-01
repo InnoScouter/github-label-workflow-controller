@@ -41,6 +41,7 @@ Callback URL, Setup URL (optional), Webhook URL
 必要なPermission
 
 - Actions: Read and write
+- Contents: Read-only
 - Metadata: Read-only
 - Pull requests: Read and write
 
