@@ -21,7 +21,6 @@ async function executeWorkflowsWhenAddLabel(
     const response = await octokit.pulls.list({
         owner,
         repo,
-        state: "open",
     });
     // ラベルが付与されているPRのみフィルタリング
     const labeledPRs = response.data.filter(pr =>
