@@ -148,6 +148,7 @@ const getLabelControllerConfigs = async (context: Context<any>) => {
         owner,
         repo,
         path: ".github/label-workflow-controller.json",
+        ref: context.payload.pull_request.head.ref
     });
 
     if ("content" in response.data) {
