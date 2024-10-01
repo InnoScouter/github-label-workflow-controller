@@ -1,5 +1,5 @@
 {
-  "name": "github-label-controller",
+  "name": "github-label-workflow-controller",
   "private": true,
   "version": "0.0.0",
   "type": "commonjs",

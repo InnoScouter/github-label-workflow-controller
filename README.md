@@ -1,4 +1,4 @@
-# github-label-controller
+# github-label-workflow-controller
 
 ラベル付与、剥がしで、ワークフローを実行するものです。
 リポジトリに以下のようなファイルが必要となります。`/.github/label-workflow-controller.json`を追加してください。
@@ -57,4 +57,4 @@ pnpm Build
 pnpm release
 
 以下は各自のAWSのクライアントの設定に合わせて書き換えてください
-https://github.com/momosetkn/github-label-controller/blob/main/tools/release.sh
+https://github.com/momosetkn/github-label-workflow-controller/blob/main/tools/release.sh
