@@ -31,7 +31,7 @@ AWS Lambda, S3, API Gatewayを使います
 
 ### github側での設定
 
-https://github.com/settings/apps/new
+https://github.com/settings/apps/new or https://github.com/organizations/InnoScouter/settings/apps/new
 
 Webhook: Active
 
