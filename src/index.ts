@@ -143,12 +143,27 @@ const getLabelControllerConfigs = async (context: Context<any>) => {
     const repo = context.payload.repository.name;
     const octokit = context.octokit;
     // ファイルの内容を取得
-    const response = await octokit.repos.getContent({
-        owner,
-        repo,
-        path: ".github/label-workflow-controller.json",
-        ref: context.payload.pull_request.head.ref
-    });
+    let response;
+    try {
+        response = await octokit.repos.getContent({
+            owner,
+            repo,
+            path: CONFIG_FILE_PATH,
+            ref: context.payload.pull_request.head.ref
+        });
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
+        // なければ、デフォルトブランチへ探しに行く
+        if (error.status === 404) {
+            response = await octokit.repos.getContent({
+                owner,
+                repo,
+                path: CONFIG_FILE_PATH
+            });
+        } else {
+            throw error;
+        }
+    }
 
     if ("content" in response.data) {
         const fileContentBase64 = response.data.content;
@@ -195,3 +210,5 @@ export const handler = async (event: any) => {
 
     return {statusCode: 200, body: JSON.stringify({message: "Success"})};
 };
+
+const CONFIG_FILE_PATH = ".github/label-workflow-controller.json";
